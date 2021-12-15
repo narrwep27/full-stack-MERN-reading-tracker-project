@@ -1,2 +1,50 @@
 # reading-tracker-project
-files for development of a reading tracker app
+
+## Date: 12/15/2021
+
+### Author: Narrwe Park
+
+[Website](projectsite) | [GitHub](https://github.com/narrwep27) | [LinkedIn](https://www.linkedin.com/in/narrwe-park-a29376192/)
+***
+
+### ***Description***
+#### Files for development of a reading tracker app. Users will be able to log in with information and save a record of what they are currently reading. Once logging in, they will be able to view their reading history, label if they have finished reading/currently reading, create a list of books that they wish to read, along with other additional features yet to come.
+***
+
+### ***Technologies***
+* Git
+    * Github
+* VS Code
+* JavaScript
+* HTML
+* CSS
+* MongoDB
+    * Mongoose
+    * Atlas
+* Express
+    * Nodemon
+* Heroku
+***
+
+### ***Getting Started***
+#### Trello board to view project planning and progress: [Full-Stack MERN Project Trello](https://trello.com/b/SzRtZYVc)
+***
+
+### ***Images/Screenshots***
+#### Image 1: Horse
+![Horse](https://th.bing.com/th/id/OIP.KpAfjTRCSlaiSVrcjSiYxgHaEp?pid=ImgDet&rs=1)
+#### Image 2: Bird
+![Bird](https://th.bing.com/th/id/R.42bce51ed64113c2ff61e90e8077f46e?rik=nX6mumK7CpqUXA&pid=ImgRaw&r=0)
+***
+
+### ***To-do List***
+- [ ] TBD
+***
+
+### ***Credits***
+##### Lucid Chart for ERD construction: [Lucid Chart](https://lucid.app/documents#/dashboard)
+##### Trello for project planning: [Trello](https://trello.com/)
+##### [Open Library API](https://openlibrary.org/developers/api)
+##### [Google Books API](https://developers.google.com/books/docs/overview)
+##### Helpful Markdown Guide: [SimplePost](https://simplpost.com/markdown.html#:~:text=How%20to%20use%20Markdown%201%20URL%20link.%20Type,the%20first%20character%20of%20a%20new%20line.%20)
+***
