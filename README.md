@@ -30,7 +30,7 @@
 #### Trello board to view project planning and progress: [Full-Stack MERN Project Trello](https://trello.com/b/SzRtZYVc)
 #### Entity Relationship Diagram Plan: [ERD Link](https://lucid.app/lucidchart/0555d933-1093-47dc-b865-1bbb7be0917f/edit?invitationId=inv_fdb81ac5-e929-418a-be0f-c960265f800d)
 #### Component Hierarchy Diagram Plan: [CHD Link](https://lucid.app/lucidchart/4858e533-4cd9-44d4-bf45-839f0b1f5aad/edit?invitationId=inv_19e0e463-4d90-4dea-84df-a1a6f5c2b82b)
-#### Routing/Controller Diagram Plan: [RCD Link]()
+#### Routing/Controller Diagram Plan: [RCD Link](https://lucid.app/lucidchart/78805492-ec70-469f-b914-b98de957700a/edit?invitationId=inv_6b1b6d22-751b-402f-adac-23ea647d1c2a)
 ***
 
 ### ***Images/Screenshots***
