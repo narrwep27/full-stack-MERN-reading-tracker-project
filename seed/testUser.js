@@ -10,7 +10,7 @@ const main = async () => {
     {
         username: 'ben',
         password: '67890',
-        books: ['a','b','c','d','e']
+        books: []
     }];
     await UserColl.insertMany(testUser);
     console.log(`testUser inserted into UserColl`);
