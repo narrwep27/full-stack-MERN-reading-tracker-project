@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import Nav from '../components/Nav'
 
 export default function Signup() {
     const [username, setUsername] = useState('');
@@ -18,6 +19,7 @@ export default function Signup() {
 
     return (
         <div>
+            <Nav />
             <form onSubmit={handleSubmit}>
                 <h2>Sign up for an account here!</h2>
                 <label>Username:</label>

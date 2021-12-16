@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Nav from "../components/Nav";
 
 export default function Login() {
     const [username, setUsername] = useState('');
@@ -13,6 +14,7 @@ export default function Login() {
 
     return (
         <div>
+            <Nav />
             <form onSubmit={handleSubmit}>
                 <label>Username:</label>
                 <input

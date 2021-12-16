@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export default function UserNav() {
     return (
-        <div className='userNav'>
-            <Link className='navlink'>New Book</Link>
-            <Link className='navlink'>Bookshelf</Link>
+        <div className='navBar'>
+            <Link to={'/newbook'} className='navLink'>New Book</Link>
+            <Link to={'/:username/bookshelf'} className='navLink'>Bookshelf</Link>
         </div>
     )
 }

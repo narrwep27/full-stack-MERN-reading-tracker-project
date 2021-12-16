@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import UserNav from "../components/UserNav";
 
 export default function NewBook() {
     const [title, setTitle] = useState('');
@@ -16,6 +17,7 @@ export default function NewBook() {
 
     return (
         <div>
+            <UserNav />
             <form onSubmit={handleSubmit}>
                 <label>Title:</label>
                 <input
