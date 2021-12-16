@@ -7,7 +7,8 @@ const BookSchema = new Schema(
         overview: { type: String, required: true },
         publisher: { type: String, required: true },
         yearPublished: { type: Number, required: true },
-        readingStatus: { type: String, required: true }
+        readingStatus: { type: String, required: true },
+        imageUrl: { type: String, required: false }
     },
     { timestamps: true }
 );
