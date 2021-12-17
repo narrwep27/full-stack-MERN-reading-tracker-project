@@ -6,12 +6,17 @@ export default function Signup() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [reentry, setReentry] = useState('');
+    const [unLength, setUnLength] = useState('');
+    const [unEmoji, setUnEmoji] = useState('');
     const [pdCheck, setpdCheck] = useState('');
-    const [checkEmoji, setEmoji] = useState('');
+    const [matchEmoji, setMatchEmoji] = useState('');
+    const [pdLength, setPdLength] = useState('');
+    const [lengthEmoji, setLengthEmoji] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (password === reentry && username) {
+        if (password === reentry && username.length > 6 &&
+            password.length > 6) {
         console.log('passwords match & username');
             //     await axios.post('http://localhost:3000/newuser', {
         //     username: username,
@@ -26,11 +31,27 @@ export default function Signup() {
     };
 
     useEffect(() => {
+        if (username) {
+            username.length > 6 ? setUnLength('unLong') : setUnLength('unShort');
+            unLength === 'unLong' ? setUnEmoji('✅') : setUnEmoji('🚫')
+        };
         if (password || reentry) {
             password === reentry ? setpdCheck('match') : setpdCheck('mismatch');
-            pdCheck === 'match' ? setEmoji('✅') : setEmoji('🚫');
+            pdCheck === 'match' ? setMatchEmoji('✅') : setMatchEmoji('🚫');
+            password.length > 6 ? setPdLength('pdLong') : setPdLength('pdShort');
+            pdLength === 'pdLong' ? setLengthEmoji('✅') : setLengthEmoji('🚫');
         };
-    }, [password, reentry, checkEmoji, pdCheck]);
+    }, [
+        password, 
+        reentry, 
+        matchEmoji, 
+        pdCheck, 
+        pdLength,
+        lengthEmoji,
+        username,
+        unLength,
+        unEmoji
+    ]);
 
     return (
         <div>
@@ -57,7 +78,9 @@ export default function Signup() {
                     type='password' 
                     placeholder='re-enter password'
                     value={reentry} />
-                <p className={pdCheck}>{checkEmoji} Passwords must match</p>
+                <p className={unLength}>{unEmoji} Username must be at least 7 characters</p>
+                <p className={pdLength}>{lengthEmoji} Password must be at least 7 characters</p>
+                <p className={pdCheck}>{matchEmoji} Passwords must match</p>
                 <button type='submit'>Signup!</button>
             </form>
         </div>
