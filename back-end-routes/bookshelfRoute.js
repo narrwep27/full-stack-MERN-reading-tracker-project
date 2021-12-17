@@ -1,7 +1,6 @@
 const router = require('express').Router();
+const getUserBooks = require('../controllers/showBooksController');
 
-router.get('/:username/bookshelf', (req, res) => {
-    res.send(`bookshelf route with username: ${req.params.username}`);
-});
+router.get('/:username/bookshelf', getUserBooks);
 
 module.exports = router;
