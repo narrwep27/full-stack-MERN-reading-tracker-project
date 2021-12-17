@@ -1,7 +1,6 @@
 const router = require('express').Router();
+const checkUser = require('../controllers/existingUserController');
 
-router.get('/existinguser', (req, res) => {
-    res.send('existinguser route');
-});
+router.get('/existinguser', checkUser);
 
 module.exports = router;
