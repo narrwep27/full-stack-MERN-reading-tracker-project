@@ -9,8 +9,8 @@ const addUser = async (req, res) => {
     } finally {
         console.log(req.route);
         console.log(req.route.path);
-        console.log(req.route.stack[0].name)
         console.log(req.body);
+        console.log(req.params);
     };
 };
 
