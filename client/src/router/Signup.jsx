@@ -12,21 +12,20 @@ export default function Signup() {
     const [matchEmoji, setMatchEmoji] = useState('');
     const [pdLength, setPdLength] = useState('');
     const [lengthEmoji, setLengthEmoji] = useState('');
+    const [checkBorder, setCheckBorder] = useState('checkBox');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password === reentry && username.length > 6 &&
             password.length > 6) {
-        console.log('passwords match & username');
+        console.log('all systems go');
             //     await axios.post('http://localhost:3000/newuser', {
         //     username: username,
         //     password: password,
         //     books: []
         // });
         } else {
-            console.log('passwords must match');
-            setPassword('');
-            setReentry('');
+            setCheckBorder('checkBorder');
         };
     };
 
@@ -78,9 +77,11 @@ export default function Signup() {
                     type='password' 
                     placeholder='re-enter password'
                     value={reentry} />
-                <p className={unLength}>{unEmoji} Username must be at least 7 characters</p>
-                <p className={pdLength}>{lengthEmoji} Password must be at least 7 characters</p>
-                <p className={pdCheck}>{matchEmoji} Passwords must match</p>
+                <div className={checkBorder}>
+                    <p className={unLength}>{unEmoji} Username must be at least 7 characters</p>
+                    <p className={pdLength}>{lengthEmoji} Password must be at least 7 characters</p>
+                    <p className={pdCheck}>{matchEmoji} Passwords must match</p>
+                </div>
                 <button type='submit'>Signup!</button>
             </form>
         </div>
