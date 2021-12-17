@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Nav from '../components/Nav'
 
-export default function Signup() {
+export default function Signup(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [reentry, setReentry] = useState('');
@@ -12,20 +12,18 @@ export default function Signup() {
     const [matchEmoji, setMatchEmoji] = useState('');
     const [pdLength, setPdLength] = useState('');
     const [lengthEmoji, setLengthEmoji] = useState('');
-    const [checkBorder, setCheckBorder] = useState('checkBox');
+    const [checkDiv, setCheckDiv] = useState('checkDiv');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (password === reentry && username.length > 6 &&
-            password.length > 6) {
-        console.log('all systems go');
-            //     await axios.post('http://localhost:3000/newuser', {
-        //     username: username,
-        //     password: password,
-        //     books: []
-        // });
+        if (password === reentry && username.length > 6 && password.length > 6) {
+            await axios.post('http://localhost:3001/newuser', {
+            username: username,
+            password: password,
+            books: []
+            });
         } else {
-            setCheckBorder('checkBorder');
+            setCheckDiv('checkAlert');
         };
     };
 
@@ -77,7 +75,7 @@ export default function Signup() {
                     type='password' 
                     placeholder='re-enter password'
                     value={reentry} />
-                <div className={checkBorder}>
+                <div className={checkDiv}>
                     <p className={unLength}>{unEmoji} Username must be at least 7 characters</p>
                     <p className={pdLength}>{lengthEmoji} Password must be at least 7 characters</p>
                     <p className={pdCheck}>{matchEmoji} Passwords must match</p>

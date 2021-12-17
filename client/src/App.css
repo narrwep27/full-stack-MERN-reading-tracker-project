@@ -39,10 +39,10 @@ form button {
 .mismatch, .pdShort, .unShort {
   color: red;
 }
-.checkBox {
+.checkDiv {
   padding: .2em 1em;
 }
-.checkBorder {
+.checkAlert {
   border: 2px dashed red;
   border-radius: 8px;
   padding: .2em 1em;
