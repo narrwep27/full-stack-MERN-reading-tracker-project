@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+/* navbar */
 .navBar {
   text-align: left;
   padding: 1em;
@@ -23,4 +23,12 @@ form {
 form button {
   width: 50%;
   margin: 1em auto;
+}
+
+/* signup */
+.match {
+  color: rgb(12, 170, 12);
+}
+.mismatch {
+  color: red;
 }

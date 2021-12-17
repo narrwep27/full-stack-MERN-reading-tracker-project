@@ -1,21 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Nav from '../components/Nav'
 
 export default function Signup() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [reentery, setReentry] = useState('');
+    const [reentry, setReentry] = useState('');
+    const [pdCheck, setpdCheck] = useState('');
+    const [checkEmoji, setEmoji] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(username);
-        console.log(password);
-        console.log(reentery);
-        setUsername('');
-        setPassword('');
-        setReentry('');
+        if (password === reentry && username) {
+        console.log('passwords match & username');
+            //     await axios.post('http://localhost:3000/newuser', {
+        //     username: username,
+        //     password: password,
+        //     books: []
+        // });
+        } else {
+            console.log('passwords must match');
+            setPassword('');
+            setReentry('');
+        };
     };
+
+    useEffect(() => {
+        if (password || reentry) {
+            password === reentry ? setpdCheck('match') : setpdCheck('mismatch');
+            pdCheck === 'match' ? setEmoji('✅') : setEmoji('🚫');
+        };
+    }, [password, reentry, checkEmoji, pdCheck]);
 
     return (
         <div>
@@ -41,7 +56,8 @@ export default function Signup() {
                     onChange={(e) => setReentry(e.target.value)}
                     type='password' 
                     placeholder='re-enter password'
-                    value={reentery} />
+                    value={reentry} />
+                <p className={pdCheck}>{checkEmoji} Passwords must match</p>
                 <button type='submit'>Signup!</button>
             </form>
         </div>

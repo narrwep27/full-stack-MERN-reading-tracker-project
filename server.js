@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./db');
-const { newUserRoute, existingUserRoute, addBookRoute, bookshelfRoute } = require('./back-end-routes');
+const { newUserRoute, existingUserRoute, addBookRoute, bookshelfRoute, allUsersRoute } = require('./back-end-routes');
 
 const PORT = process.env.PORT || 3001;
 
@@ -14,7 +14,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', newUserRoute);
 app.use('/', existingUserRoute);
 app.use('/', addBookRoute);
-app.use('/', bookshelfRoute)
+app.use('/', bookshelfRoute);
+
+// Insomnia testing routes
+app.use('/', allUsersRoute);
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
