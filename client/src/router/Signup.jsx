@@ -7,7 +7,7 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [reentery, setReentry] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(username);
         console.log(password);
