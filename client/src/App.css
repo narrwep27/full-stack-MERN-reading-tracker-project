@@ -42,7 +42,7 @@ label {
 }
 .userNavBar {
   display: grid;
-  grid-template-columns: 10% 10% 70% 10%;
+  grid-template-columns: 15% 15% 60% 10%;
   padding: 1em;
   border: 2px solid black;
 }
@@ -98,4 +98,15 @@ label {
 }
 .alert button {
   margin: .5em 1em;
+}
+
+/* bookshelf */
+.bookItem {
+  margin: 1em auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 60%;
+}
+.readStat {
+  font-size: smaller;
 }

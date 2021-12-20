@@ -5,7 +5,7 @@ import Nav from "../components/Nav";
 export default function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [alertDisplay, setAlert] = useState(undefined);
+    const [alertDisplay, setAlert] = useState('');
 
     const reset = () => {
         setUsername('');

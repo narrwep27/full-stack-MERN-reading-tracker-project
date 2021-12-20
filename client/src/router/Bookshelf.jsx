@@ -4,24 +4,23 @@ import UserNav from '../components/UserNav';
 import BookItem from '../components/BookItem';
 
 export default function Bookshelf(props) {
-    const [user, setUser] = useState(undefined);
+    const [userBooks, setUserBooks] = useState([]);
     
-    useEffect( async () => {
+    useEffect(() => {
         const getUser = async () => {
-            let currentUser = await axios.get(`http://localhost:3001/existinguser/${props.match.params.username}`);
-            setUser(currentUser);
+            let response = await axios.get(`http://localhost:3001/existinguser/${props.match.params.username}`);
+            setUserBooks(response.data[0].books);
         };
         getUser();
-        console.log(user.data[0].books);
     }, []);
 
     return (
         <div>
             <UserNav username={props.match.params.username}/>
-            <h1>Your Bookshelf:</h1>
+            <h1>{props.match.params.username}'s Bookshelf:</h1>
             {
-                user.data[0].books.map((param) => (
-                    <BookItem id={param} />
+                userBooks.map((param, index) => (
+                    <BookItem key={index} id={param} />
                 ))
             }
         </div>

@@ -13,7 +13,7 @@ export default function Signup(props) {
     const [pdLength, setPdLength] = useState('');
     const [lengthEmoji, setLengthEmoji] = useState('');
     const [checkDiv, setCheckDiv] = useState('checkDiv');
-    const [alertDisplay, setAlert] = useState(undefined);
+    const [alertDisplay, setAlert] = useState('');
 
     const reset = () => {
         setUsername('');
@@ -26,7 +26,7 @@ export default function Signup(props) {
         setPdLength('');
         setLengthEmoji('');
         setCheckDiv('checkDiv');
-        setAlert(undefined);
+        setAlert('');
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
