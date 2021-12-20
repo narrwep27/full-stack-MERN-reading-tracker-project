@@ -5,23 +5,38 @@ import Nav from "../components/Nav";
 export default function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [alertDisplay, setAlert] = useState(undefined);
 
+    const reset = () => {
+        setUsername('');
+        setPassword('');
+        setAlert(undefined);
+    };
+    const alertChange = (text) => {
+        setAlert(
+            <div className="alertDisplay">
+                <div className="alert">
+                    <p>{text}</p>
+                    <button onClick={reset}>Okay</button>
+                </div>
+            </div>
+        );
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (username && password) {
             let response = await axios.get(`http://localhost:3001/existinguser/${username}`);
-            if (response.data[0].username) {
+            if (response.data.length === 1) {
                 if (response.data[0].password === password) {
-                    console.log('username and password match');
-                    // props.history.push(`/${username}/bookshelf`);
+                    props.history.push(`/${username}/bookshelf`);
                 } else {
-                    console.log('passwords do not match');
+                    alertChange('Password does not match our records');
                 };
             } else {
-                console.log('username not found');
+                alertChange('Username not found');
             };
         } else {
-            console.log('username and/or password missing');
+            alertChange('Username and/or password are missing');
         };
     };
 
@@ -46,6 +61,7 @@ export default function Login(props) {
                 />
                 <button type='submit'>Login!</button>
             </form>
+            {alertDisplay}
         </div>
     );
 };
