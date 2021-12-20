@@ -11,16 +11,18 @@ export default function NewBook(props) {
     // const [pubYear, setPubYear] = useState(0);
     const [imgUrl, setImageUrl] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:3001/${props.match.params.username}/addbook`, 
-            {
-                title: title,
-                author: author,
-                overview: overview,
-                readingStatus: readStat,
-                imageUrl: imgUrl
-            });
+        // await axios.post(`http://localhost:3001/${props.match.params.username}/addbook`, 
+        //     {
+        //         title: title,
+        //         author: author,
+        //         overview: overview,
+        //         readingStatus: readStat,
+        //         imageUrl: imgUrl
+        //     });
+        let user = await axios.get(`http://localhost:3001/existinguser/${props.match.params.username}`);
+        console.log(user.data);
     };
 
     return (
