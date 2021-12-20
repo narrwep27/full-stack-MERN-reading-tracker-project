@@ -2,22 +2,30 @@ import { useState } from "react";
 import axios from "axios";
 import UserNav from "../components/UserNav";
 
-export default function NewBook() {
+export default function NewBook(props) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [overview, setOverview] = useState('');
     const [readStat, setReadStat] = useState('');
-    const [publisher, setPublisher] = useState('');
-    const [pubYear, setPubYear] = useState(0);
+    // const [publisher, setPublisher] = useState('');
+    // const [pubYear, setPubYear] = useState(0);
     const [imgUrl, setImageUrl] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    }
+        axios.post(`http://localhost:3001/${props.match.params.username}/addbook`, 
+            {
+                title: title,
+                author: author,
+                overview: overview,
+                readingStatus: readStat,
+                imageUrl: imgUrl
+            });
+    };
 
     return (
         <div>
-            <UserNav />
+            <UserNav username={props.match.params.username}/>
             <form onSubmit={handleSubmit}>
                 <label>Title:</label>
                 <input
@@ -47,7 +55,7 @@ export default function NewBook() {
                     <option value='Currently Reading'>Currently Reading</option>
                     <option value='Finished Reading'>Finished Reading</option>
                 </select>
-                <label>Publisher:</label>
+                {/* <label>Publisher:</label>
                 <input
                     onChange={(e) => setPublisher(e.target.value)}
                     type='text'
@@ -60,7 +68,7 @@ export default function NewBook() {
                     type='number'
                     placeholder="####"
                     value={pubYear}
-                />
+                /> */}
                 <label>Image URL:</label>
                 <input 
                 onChange={(e) => setImageUrl(e.target.value)}

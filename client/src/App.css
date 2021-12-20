@@ -18,7 +18,7 @@ form {
 form h2 {
   text-align: center;
 }
-input {
+input, textarea, select {
   margin-bottom: 1em;
 }
 form p {

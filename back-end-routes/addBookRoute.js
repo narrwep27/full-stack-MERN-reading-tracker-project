@@ -1,7 +1,6 @@
 const router = require('express').Router();
+const addBook = require('../controllers/addBookController');
 
-router.post('/:username/addbook', (req, res) => {
-    res.send(`addbook route with user name: ${req.params.username}`);
-});
+router.post('/:username/addbook', addBook);
 
 module.exports = router;
