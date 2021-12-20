@@ -13,16 +13,21 @@ export default function NewBook(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // await axios.post(`http://localhost:3001/${props.match.params.username}/addbook`, 
-        //     {
-        //         title: title,
-        //         author: author,
-        //         overview: overview,
-        //         readingStatus: readStat,
-        //         imageUrl: imgUrl
-        //     });
         let user = await axios.get(`http://localhost:3001/existinguser/${props.match.params.username}`);
-        console.log(user.data);
+        let book = await axios.post(`http://localhost:3001/${props.match.params.username}/addbook`, 
+            {
+                title: title,
+                author: author,
+                overview: overview,
+                readingStatus: readStat,
+                imageUrl: imgUrl,
+                user: user.data[0]._id
+            });
+        console.log(book.data[0]._id);
+        await axios.put(`http://localhost:3001/${props.match.params.username}/adduserbook`, 
+        {
+            books: [book.data[0]._id]
+        });
     };
 
     return (

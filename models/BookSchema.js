@@ -8,7 +8,8 @@ const BookSchema = new Schema(
         // publisher: { type: String, required: true },
         // yearPublished: { type: Number, required: true },
         readingStatus: { type: String, required: true },
-        imageUrl: { type: String, required: false }
+        imageUrl: { type: String, required: false },
+        user: { type: Schema.Types.ObjectId, ref: 'users' }
     },
     { timestamps: true }
 );
