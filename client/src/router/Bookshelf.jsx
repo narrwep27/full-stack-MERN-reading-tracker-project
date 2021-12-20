@@ -20,9 +20,12 @@ export default function Bookshelf(props) {
             <h1>{props.match.params.username}'s Bookshelf:</h1>
             {
                 userBooks.map((param, index) => (
-                    <BookItem key={index} id={param} />
+                    <BookItem 
+                        key={index}
+                        user={props.match.params.username} 
+                        bookId={param} />
                 ))
             }
         </div>
-    )
-}
+    );
+};

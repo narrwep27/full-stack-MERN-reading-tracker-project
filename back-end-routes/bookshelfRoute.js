@@ -5,8 +5,8 @@ const deleteBook = require('../controllers/deleteBookController');
 const editBook = require('../controllers/editBookController');
 
 router.post('/:username/bookshelf/addbook', addBook);
-router.delete('/:username/bookshelf/deletebook', deleteBook);
+router.delete('/:username/bookshelf/deletebook/:bookid', deleteBook);
 router.put('/:username/bookshelf/editbook', editBook);
-router.get('/:bookid/bookshelf', getUserBooks);
+router.get('/:username/bookshelf/:bookid', getUserBooks);
 
 module.exports = router;
