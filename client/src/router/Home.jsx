@@ -9,8 +9,6 @@ export default function Home(props) {
         props.history.push('/login');
     };
 
-    console.log(props);
-
     return (
         <div>
             <Nav />

@@ -1,3 +1,6 @@
+* {
+  text-align: center;
+}
 /* navbar */
 .navBar {
   text-align: left;
@@ -30,6 +33,9 @@ form p {
 form button {
   width: 100px;
   margin: 1em auto;
+}
+label {
+  text-align: left;
 }
 
 /* signup */

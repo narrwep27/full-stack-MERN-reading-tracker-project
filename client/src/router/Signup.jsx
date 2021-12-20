@@ -22,6 +22,7 @@ export default function Signup(props) {
             password: password,
             books: []
             });
+            props.history.push(`/${username}/bookshelf`);
         } else {
             setCheckDiv('checkAlert');
         };
