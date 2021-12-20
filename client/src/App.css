@@ -42,7 +42,7 @@ label {
 }
 .userNavBar {
   display: grid;
-  grid-template-columns: 1fr 1fr 6fr;
+  grid-template-columns: 10% 10% 70% 10%;
   padding: 1em;
   border: 2px solid black;
 }
@@ -52,6 +52,17 @@ label {
 .logout {
   justify-self: right;
   margin: 0 30px;
+}
+.userNavBar p {
+  margin: 0;
+  justify-self: right;
+}
+.navBar a, .userNavBar a {
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
 }
 
 /* signup */
