@@ -33,7 +33,15 @@ export default function Login(props) {
                     alertChange('Password does not match our records');
                 };
             } else {
-                alertChange('Username not found');
+                setAlert(
+                    <div className="alertDisplay">
+                        <div className="alert">
+                            <p>That username was not found. Sign up for a new account or enter an existing username.</p>
+                            <button onClick={() => props.history.push('/signup')}>Sign up</button>
+                            <button onClick={reset}>Reset fields</button>
+                        </div>
+                    </div>
+                );
             };
         } else {
             alertChange('Username and/or password are missing');
@@ -59,7 +67,7 @@ export default function Login(props) {
                     placeholder="password"
                     value={password}
                 />
-                <button type='submit'>Login!</button>
+                <button type='submit'>Log in!</button>
             </form>
             {alertDisplay}
         </div>
