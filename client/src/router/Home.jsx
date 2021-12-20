@@ -13,8 +13,8 @@ export default function Home(props) {
         <div>
             <Nav />
             <h1>This is the home page</h1>
-            <button onClick={goToSignup}>Sign up!</button>
-            <button onClick={goToLogin}>Login</button>
+            <button className='homeBtn' onClick={goToSignup}>Sign up!</button>
+            <button className='homeBtn' onClick={goToLogin}>Login</button>
         </div>
     );
 };

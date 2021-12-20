@@ -1,14 +1,9 @@
 * {
   text-align: center;
 }
-/* navbar */
-.navBar {
-  text-align: left;
-  padding: 1em;
-  border: 2px solid black;
-}
-.navLink {
-  margin: 0 30px;
+
+.homeBtn {
+  margin: 0 2em;
 }
 
 form {
@@ -37,6 +32,26 @@ form button {
 }
 label {
   text-align: left;
+}
+
+/* navbar */
+.navBar {
+  display: flex;
+  padding: 1em;
+  border: 2px solid black;
+}
+.userNavBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 6fr;
+  padding: 1em;
+  border: 2px solid black;
+}
+.navLink {
+  margin: 0 30px;
+}
+.logout {
+  justify-self: right;
+  margin: 0 30px;
 }
 
 /* signup */
