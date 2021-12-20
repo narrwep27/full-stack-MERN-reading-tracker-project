@@ -22,11 +22,14 @@ export default function NewBook(props) {
                 readingStatus: readStat,
                 imageUrl: imgUrl,
                 user: user.data[0]._id
-            });
+            }
+        );
         await axios.put(`http://localhost:3001/${props.match.params.username}/adduserbook`, 
-        {
-            books: [...user.data[0].books, book.data[0]._id]
-        });
+            {
+                books: [...user.data[0].books, book.data[0]._id]
+            }
+        );
+        props.history.push(`/${props.match.params.username}/bookshelf`);
     };
 
     return (
