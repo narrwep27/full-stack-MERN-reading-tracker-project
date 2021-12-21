@@ -19,7 +19,6 @@ export default function NewBook(props) {
     const bookSearch = async (e) => {
         e.preventDefault();
         let response = await axios.get(`https://openlibrary.org/api/books?bibkeys=ISBN:${ISBN}&format=json&jscmd=details`);
-        console.log(response.data[`ISBN:${ISBN}`]);
         let book = response.data[`ISBN:${ISBN}`];
         let year = book.details.publish_date.split(', ');
         setTitle(book.details.title);
@@ -30,7 +29,7 @@ export default function NewBook(props) {
     };
 
     return (
-        <div>
+        <div className="NewBook">
             <UserNav username={props.match.params.username}/>
             <div className="newBook">
                 <form className='search' onSubmit={bookSearch}>

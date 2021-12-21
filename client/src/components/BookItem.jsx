@@ -9,16 +9,6 @@ export default function BookItem(props) {
         let response = await axios.get(`http://localhost:3001/${props.username}/bookshelf/${props.bookId}`);
         setBook(response.data);
     };
-    const deleteBook = async () => {
-        await axios.delete(`http://localhost:3001/${props.username}/bookshelf/deletebook/${props.bookId}`);
-        let newBooksArr = props.userBooks.filter((param) => { return param !== props.bookId});
-        await axios.put(`http://localhost:3001/${props.username}/adduserbook`, 
-            {
-                books: [...newBooksArr]
-            }
-        );
-        props.setUserBooks(newBooksArr);
-    };
     const changeStatus = async () => {
         let book = await axios.put(`http://localhost:3001/${props.username}/bookshelf/editbook/${props.bookId}`, 
             {
@@ -50,7 +40,7 @@ export default function BookItem(props) {
                 <button onClick={changeStatus}>Set Status</button>
             </div>
             <div>
-                <button onClick={deleteBook}>Delete</button>
+                <button onClick={props.deleteBook}>Delete</button>
             </div>
         </div>
     );
