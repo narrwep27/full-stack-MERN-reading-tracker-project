@@ -32,7 +32,7 @@ export default function Signup(props) {
         e.preventDefault();
         if (password === reentry && username.length > 6 && password.length > 6) {
             let response = await axios.get(`http://localhost:3001/existinguser/${username}`);
-            if (response.data.length === 1) {
+            if (response.data) {
                 setAlert(
                     <div className="alertDisplay">
                         <div className="alert">

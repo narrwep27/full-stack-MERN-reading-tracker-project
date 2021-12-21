@@ -21,12 +21,12 @@ export default function NewBook(props) {
                 overview: overview,
                 readingStatus: readStat,
                 imageUrl: imgUrl,
-                user: user.data[0]._id
+                user: user.data._id
             }
         );
         await axios.put(`http://localhost:3001/${props.match.params.username}/adduserbook`, 
             {
-                books: [...user.data[0].books, book.data[0]._id]
+                books: [...user.data.books, book.data[0]._id]
             }
         );
         props.history.push(`/${props.match.params.username}/bookshelf`);
@@ -36,28 +36,28 @@ export default function NewBook(props) {
         <div>
             <UserNav username={props.match.params.username}/>
             <form onSubmit={handleSubmit}>
-                <label>Title:</label>
+                <label>Title (required):</label>
                 <input
                     onChange={(e) => setTitle(e.target.value)}
                     type='text'
                     placeholder="title"
                     value={title}
                 />
-                <label>Author:</label>
+                <label>Author (required):</label>
                 <input
                     onChange={(e) => setAuthor(e.target.value)}
                     type='text'
                     placeholder="author"
                     value={author}
                 />
-                <label>Overview:</label>
+                <label>Overview (required):</label>
                 <textarea
                     onChange={(e) => setOverview(e.target.value)}
                     placeholder="overview"
                     value={overview}
                     rows='4'>
                 </textarea>
-                <label>Reading Status:</label>
+                <label>Reading Status (required):</label>
                 <select onChange={(e) => setReadStat(e.target.value)}>
                     <option value=''>--Select a reading status--</option>
                     <option value='Want to Read'>Want to Read</option>
@@ -78,7 +78,7 @@ export default function NewBook(props) {
                     placeholder="####"
                     value={pubYear}
                 /> */}
-                <label>Image URL:</label>
+                <label>Image URL (optional):</label>
                 <input 
                 onChange={(e) => setImageUrl(e.target.value)}
                 type='text'

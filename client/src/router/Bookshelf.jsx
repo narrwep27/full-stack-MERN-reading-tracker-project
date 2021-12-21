@@ -5,12 +5,13 @@ import BookItem from '../components/BookItem';
 
 export default function Bookshelf(props) {
     const [userBooks, setUserBooks] = useState([]);
-    
+
+    const getUser = async () => {
+        let response = await axios.get(`http://localhost:3001/existinguser/${props.match.params.username}`);
+        setUserBooks(response.data.books);
+    };
+
     useEffect(() => {
-        const getUser = async () => {
-            let response = await axios.get(`http://localhost:3001/existinguser/${props.match.params.username}`);
-            setUserBooks(response.data[0].books);
-        };
         getUser();
     }, []);
 
@@ -22,8 +23,10 @@ export default function Bookshelf(props) {
                 userBooks.map((param, index) => (
                     <BookItem 
                         key={index}
-                        user={props.match.params.username} 
-                        bookId={param} />
+                        username={props.match.params.username} 
+                        bookId={param}
+                        userBooks={userBooks}
+                        setUserBooks={setUserBooks} />
                 ))
             }
         </div>
