@@ -9,30 +9,13 @@ export default function NewBook(props) {
     const [author, setAuthor] = useState('');
     const [publisher, setPublisher] = useState('');
     const [pubYear, setPubYear] = useState('');
-    const [imgUrl, setImageUrl] = useState('');
-    // const [readStat, setReadStat] = useState('');
+    const [imgUrl, setImageUrl] = useState('https://media.istockphoto.com/vectors/book-blank-red-cover-vector-id164474860?k=6&m=164474860&s=170667a&w=0&h=Q8MwXunqtg9_hRGEwxCHjBStGSsA_JD_tiu3nePNYac=');
+    const [bookAddDisplay, setAddDisplay] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        let user = await axios.get(`http://localhost:3001/existinguser/${props.match.params.username}`);
-        let book = await axios.post(`http://localhost:3001/${props.match.params.username}/addbook`, 
-            {
-                title: title,
-                author: author,
-                publisher: publisher,
-                yearPublished: pubYear,
-                // readingStatus: readStat,
-                imageUrl: imgUrl,
-                user: user.data._id
-            }
-        );
-        await axios.put(`http://localhost:3001/${props.match.params.username}/adduserbook`, 
-            {
-                books: [...user.data.books, book.data[0]._id]
-            }
-        );
-        props.history.push(`/${props.match.params.username}/bookshelf`);
+    const removeAddDisplay = () => {
+        setAddDisplay('');
     };
+
     const bookSearch = async (e) => {
         e.preventDefault();
         let response = await axios.get(`https://openlibrary.org/api/books?bibkeys=ISBN:${ISBN}&format=json&jscmd=details`);
@@ -62,7 +45,7 @@ export default function NewBook(props) {
                     <button type="submit">Search</button>
                 </form>
                 <h2>OR</h2>
-                <form className="enterInfo" onSubmit={handleSubmit}>
+                <form className="enterInfo">
                     <h3>Enter book info here!</h3>
                     <label>Title <span>(required)</span>:</label>
                     <input
@@ -105,16 +88,25 @@ export default function NewBook(props) {
                     type='text'
                     placeholder="image URL"
                     value={imgUrl}/>
-                    <button type="submit">Preview</button>
                 </form>
                 <BookPreview
+                    username={props.match.params.username}
                     title={title}
+                    setTitle={setTitle}
                     author={author}
+                    setAuthor={setAuthor}
                     publisher={publisher}
+                    setPublisher={setPublisher}
                     pubYear={pubYear}
+                    setPubYear={setPubYear}
                     imgUrl={imgUrl} 
+                    setImageUrl={setImageUrl}
+                    setISBN={setISBN}
+                    setAddDisplay={setAddDisplay}
+                    removeAddDisplay={removeAddDisplay}
                 />
             </div>
+            {bookAddDisplay}
         </div>
     );
 };

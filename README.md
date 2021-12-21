@@ -42,6 +42,5 @@
 ##### Lucid Chart for ERD construction: [Lucid Chart](https://lucid.app/documents#/dashboard)
 ##### Trello for project planning: [Trello](https://trello.com/)
 ##### [Open Library API](https://openlibrary.org/developers/api)
-##### [Google Books API](https://developers.google.com/books/docs/overview)
-##### Helpful Markdown Guide: [SimplePost](https://simplpost.com/markdown.html#:~:text=How%20to%20use%20Markdown%201%20URL%20link.%20Type,the%20first%20character%20of%20a%20new%20line.%20)
+##### [Stock Book Image](https://www.istockphoto.com/vector/book-blank-red-cover-gm164474860-19838551)
 ***
