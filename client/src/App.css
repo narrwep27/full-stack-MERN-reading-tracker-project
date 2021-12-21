@@ -10,7 +10,7 @@ form {
   display: flex;
   flex-direction: column;
   width: 300px;
-  margin: 3em auto;
+  margin: 1.5em auto;
   padding: 0 1.8em 1em 1.8em;
   border: 1px solid black;
   border-radius: 20px;
@@ -121,12 +121,35 @@ span {
 .newBook {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-template-rows: 2;
+  grid-template-rows: 3;
 }
 .enterInfo {
-  grid-row: 2 / 2;
+  grid-row: 3 / 3;
+}
+.BookPreviews {
+  grid-column: 2 / 2;
+  grid-row: 1 / 4;
 }
 .preview {
-  grid-column: 2 / 2;
-  grid-row: 1 / span 2;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 3;
+  margin: 2em;
+  border: 1px solid black;
+  height: 300px;
+}
+.preview img {
+  grid-row: 1 / 4;
+  justify-self: center;
+  align-self: center;
+  width: 50%;
+}
+.preview h3, .preview p {
+  text-align: left;
+}
+.newBook h2 {
+  margin: 0;
+}
+.previewDisplay button, .previewDisplay select {
+  margin: 0 1.5em;
 }

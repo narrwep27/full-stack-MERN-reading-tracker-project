@@ -1,15 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 import UserNav from "../components/UserNav";
+import BookPreview from "../components/BookPreview";
 
 export default function NewBook(props) {
+    const [ISBN, setISBN] = useState('');
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    const [readStat, setReadStat] = useState('');
     const [publisher, setPublisher] = useState('');
     const [pubYear, setPubYear] = useState('');
     const [imgUrl, setImageUrl] = useState('');
-    const [ISBN, setISBN] = useState('');
+    // const [readStat, setReadStat] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +21,7 @@ export default function NewBook(props) {
                 author: author,
                 publisher: publisher,
                 yearPublished: pubYear,
-                readingStatus: readStat,
+                // readingStatus: readStat,
                 imageUrl: imgUrl,
                 user: user.data._id
             }
@@ -36,6 +37,13 @@ export default function NewBook(props) {
         e.preventDefault();
         let response = await axios.get(`https://openlibrary.org/api/books?bibkeys=ISBN:${ISBN}&format=json&jscmd=details`);
         console.log(response.data[`ISBN:${ISBN}`]);
+        let book = response.data[`ISBN:${ISBN}`];
+        let year = book.details.publish_date.split(', ');
+        setTitle(book.details.title);
+        setAuthor(book.details.authors[0].name);
+        setPublisher(book.details.publishers[0]);
+        setPubYear(year[1]);
+        setImageUrl(book.thumbnail_url);
     };
 
     return (
@@ -53,6 +61,7 @@ export default function NewBook(props) {
                     />
                     <button type="submit">Search</button>
                 </form>
+                <h2>OR</h2>
                 <form className="enterInfo" onSubmit={handleSubmit}>
                     <h3>Enter book info here!</h3>
                     <label>Title <span>(required)</span>:</label>
@@ -83,13 +92,13 @@ export default function NewBook(props) {
                         placeholder="####"
                         value={pubYear}
                     />
-                    <label>Reading Status <span>(required)</span>:</label>
+                    {/* <label>Reading Status <span>(required)</span>:</label>
                     <select onChange={(e) => setReadStat(e.target.value)}>
                         <option value=''>--Select a reading status--</option>
                         <option value='Want to Read'>Want to Read</option>
                         <option value='Currently Reading'>Currently Reading</option>
                         <option value='Finished Reading'>Finished Reading</option>
-                    </select>
+                    </select> */}
                     <label>Image URL <span>(optional)</span>:</label>
                     <input 
                     onChange={(e) => setImageUrl(e.target.value)}
@@ -98,9 +107,13 @@ export default function NewBook(props) {
                     value={imgUrl}/>
                     <button type="submit">Preview</button>
                 </form>
-                <div className="preview">
-                    <h2>This is the book preview</h2>
-                </div>
+                <BookPreview
+                    title={title}
+                    author={author}
+                    publisher={publisher}
+                    pubYear={pubYear}
+                    imgUrl={imgUrl} 
+                />
             </div>
         </div>
     );
