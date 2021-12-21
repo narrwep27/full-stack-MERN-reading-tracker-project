@@ -106,15 +106,20 @@ span {
 /* bookshelf */
 .bookItem {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 15% 55% 15% 15%;
   align-items: center;
   margin: 1em auto;
   border: 1px solid black;
   border-radius: 20px;
-  width: 60%;
+  width: 67%;
 }
 .readStat {
   font-size: smaller;
+}
+.bookItem img {
+  justify-self: center;
+  height: 70%;
+  max-width: 90%;
 }
 
 /* NewBook */

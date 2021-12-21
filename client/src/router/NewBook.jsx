@@ -75,13 +75,6 @@ export default function NewBook(props) {
                         placeholder="####"
                         value={pubYear}
                     />
-                    {/* <label>Reading Status <span>(required)</span>:</label>
-                    <select onChange={(e) => setReadStat(e.target.value)}>
-                        <option value=''>--Select a reading status--</option>
-                        <option value='Want to Read'>Want to Read</option>
-                        <option value='Currently Reading'>Currently Reading</option>
-                        <option value='Finished Reading'>Finished Reading</option>
-                    </select> */}
                     <label>Image URL <span>(optional)</span>:</label>
                     <input 
                     onChange={(e) => setImageUrl(e.target.value)}

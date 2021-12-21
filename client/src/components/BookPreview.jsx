@@ -4,6 +4,10 @@ import axios from "axios";
 export default function BookPreview(props) {
     const [readStat, setReadStat] = useState('');
     const [statText, setStatText] = useState('');
+    let previewDisplay = 
+        <div className="previewDisplay">
+            <h3>No preview yet. Search for a book or fill in the info fields.</h3>
+        </div>
     
     const handleSubmit = async () => {
         if (readStat) {
@@ -42,14 +46,11 @@ export default function BookPreview(props) {
             setReadStat('')
         } else {
             setStatText(
-                <p className="statText"><b>Set a reading status 👉</b></p>
+                <p className="statText">Set a reading status ➡</p>
             );
         };
     };
-    let previewDisplay = 
-        <div className="previewDisplay">
-            <h3>No preview yet. Search for a book or fill in the info fields.</h3>
-        </div>;
+
     if (props.title && props.author && props.publisher && props.pubYear) {
         previewDisplay = 
             <div className="previewDisplay">
