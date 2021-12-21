@@ -33,6 +33,9 @@ form button {
 label {
   text-align: left;
 }
+span {
+  font-size: smaller;
+}
 
 /* navbar */
 .navBar {
@@ -112,4 +115,18 @@ label {
 }
 .readStat {
   font-size: smaller;
+}
+
+/* NewBook */
+.newBook {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 2;
+}
+.enterInfo {
+  grid-row: 2 / 2;
+}
+.preview {
+  grid-column: 2 / 2;
+  grid-row: 1 / span 2;
 }

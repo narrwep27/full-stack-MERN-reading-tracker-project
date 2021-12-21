@@ -26,8 +26,8 @@ export default function Login(props) {
         e.preventDefault();
         if (username && password) {
             let response = await axios.get(`http://localhost:3001/existinguser/${username}`);
-            if (response.data.length === 1) {
-                if (response.data[0].password === password) {
+            if (response.data) {
+                if (response.data.password === password) {
                     props.history.push(`/${username}/bookshelf`);
                 } else {
                     alertChange('Password does not match our records');
