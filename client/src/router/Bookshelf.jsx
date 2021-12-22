@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UserNav from '../components/UserNav';
 import BookItem from '../components/BookItem';
+import { BASE_URL } from '../globals';
 
 export default function Bookshelf(props) {
     const [userBooks, setUserBooks] = useState([]);
 
     const getUser = async () => {
-        let response = await axios.get(`http://localhost:3001/existinguser/${props.match.params.username}`);
+        let response = await axios.get(`${BASE_URL}existinguser/${props.match.params.username}`);
         setUserBooks(response.data.books);
     };
     const deleteBook = async (param) => {
-        let deletedBook = await axios.delete(`http://localhost:3001/${props.match.params.username}/bookshelf/deletebook/${param}`);
+        let deletedBook = await axios.delete(`${BASE_URL}${props.match.params.username}/bookshelf/deletebook/${param}`);
         let newBooksArr = userBooks.filter((item) => { return item !== deletedBook.data.value._id});
-        await axios.put(`http://localhost:3001/${props.match.params.username}/adduserbook`, 
+        await axios.put(`${BASE_URL}${props.match.params.username}/adduserbook`, 
             {
                 books: [...newBooksArr]
             }

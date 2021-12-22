@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Nav from "../components/Nav";
+import { BASE_URL } from "../globals";
 
 export default function Login(props) {
     const [username, setUsername] = useState('');
@@ -25,7 +26,7 @@ export default function Login(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (username && password) {
-            let response = await axios.get(`http://localhost:3001/existinguser/${username}`);
+            let response = await axios.get(`${BASE_URL}existinguser/${username}`);
             if (response.data) {
                 if (response.data.password === password) {
                     props.history.push(`/${username}/bookshelf`);

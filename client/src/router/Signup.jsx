@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Nav from '../components/Nav'
+import Nav from '../components/Nav';
+import { BASE_URL } from '../globals';
 
 export default function Signup(props) {
     const [username, setUsername] = useState('');
@@ -31,7 +32,7 @@ export default function Signup(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password === reentry && username.length > 6 && password.length > 6) {
-            let response = await axios.get(`http://localhost:3001/existinguser/${username}`);
+            let response = await axios.get(`${BASE_URL}existinguser/${username}`);
             if (response.data) {
                 setAlert(
                     <div className="alertDisplay">
@@ -43,7 +44,7 @@ export default function Signup(props) {
                     </div>
                 );
             } else {
-            await axios.post('http://localhost:3001/newuser', 
+            await axios.post(`${BASE_URL}newuser`, 
                 {
                     username: username,
                     password: password,

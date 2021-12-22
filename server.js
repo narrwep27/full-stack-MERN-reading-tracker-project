@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./db');
 const { newUserRoute, existingUserRoute, addBookRoute, bookshelfRoute, allUsersRoute } = require('./back-end-routes');
+const path = require('path');
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const PORT = process.env.PORT || 3001;
 
@@ -19,6 +22,11 @@ app.use('/', bookshelfRoute);
 // Insomnia testing routes
 app.use('/', allUsersRoute);
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(`${__dirname}/client/build/index.html`))
+    });
+};
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
