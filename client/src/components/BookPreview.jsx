@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../globals";
 
 export default function BookPreview(props) {
     const [readStat, setReadStat] = useState('');
@@ -11,8 +12,8 @@ export default function BookPreview(props) {
     
     const handleSubmit = async () => {
         if (readStat) {
-            let user = await axios.get(`http://localhost:3001/existinguser/${props.username}`);
-            let book = await axios.post(`http://localhost:3001/${props.username}/addbook`, 
+            let user = await axios.get(`${BASE_URL}existinguser/${props.username}`);
+            let book = await axios.post(`${BASE_URL}${props.username}/addbook`, 
                 {
                     title: props.title,
                     author: props.author,
@@ -23,7 +24,7 @@ export default function BookPreview(props) {
                     user: user.data._id
                 }
             );
-            await axios.put(`http://localhost:3001/${props.username}/adduserbook`, 
+            await axios.put(`${BASE_URL}${props.username}/adduserbook`, 
                 {
                     books: [...user.data.books, book.data[0]._id]
                 }

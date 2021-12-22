@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../globals";
 
 export default function BookItem(props) {
     const [book, setBook] = useState({});
     const [newStat, setStat] = useState('');
 
     const getBook = async () => {
-        let response = await axios.get(`http://localhost:3001/${props.username}/bookshelf/${props.bookId}`);
+        let response = await axios.get(`${BASE_URL}${props.username}/bookshelf/${props.bookId}`);
         setBook(response.data);
     };
     const changeStatus = async () => {
-        let book = await axios.put(`http://localhost:3001/${props.username}/bookshelf/editbook/${props.bookId}`, 
+        let book = await axios.put(`${BASE_URL}${props.username}/bookshelf/editbook/${props.bookId}`, 
             {
                 readingStatus: newStat
             }
