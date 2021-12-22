@@ -3,6 +3,7 @@ const cors = require('cors');
 const db = require('./db');
 const { newUserRoute, existingUserRoute, addBookRoute, bookshelfRoute, allUsersRoute } = require('./back-end-routes');
 const path = require('path');
+require('dotenv').config({path:'./.env'});
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
