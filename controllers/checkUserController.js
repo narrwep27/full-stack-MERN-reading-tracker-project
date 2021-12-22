@@ -5,7 +5,7 @@ const checkUser = async (req, res) => {
         let loginUser = await UserColl.findOne({ username: req.params.username });
         res.status(200).json(loginUser);
     } catch (error) {
-        return res.status(500).json({ error: error.message })
+        return res.status(500).send('your error message in checkUserController')
     };
 };
 
