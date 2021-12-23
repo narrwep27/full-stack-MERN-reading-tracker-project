@@ -8,7 +8,7 @@
 ***
 
 ### ***Description***
-#### Files for development of a reading tracker app. Users will be able to log in with information and save a record of what they are currently reading. Once logging in, they will be able to view their reading history, label if they have finished reading, are currently reading, or want to read a book.
+Files for development of a reading tracker app. Users will be able to log in with information and save a record of what they are currently reading. Once logging in, they will be able to view their reading history, label if they have finished reading, are currently reading, or want to read a book.
 ***
 
 ### ***Technologies***
@@ -39,7 +39,7 @@
 ![Sign up](https://raw.githubusercontent.com/narrwep27/full-stack-MERN-reading-tracker-project/main/readme-images/signup.png)
 #### Image 2: Bookshelf page showing list of user books
 ![Bookshelf](https://github.com/narrwep27/full-stack-MERN-reading-tracker-project/blob/main/readme-images/bookshelf.png?raw=true)
-### Image 3: New Book page using an ISBN search to pull information from the Open Library API
+#### Image 3: New Book page using an ISBN search to pull information from the Open Library API
 ![New Book](https://github.com/narrwep27/full-stack-MERN-reading-tracker-project/blob/main/readme-images/addbook.png?raw=true)
 ***
 
