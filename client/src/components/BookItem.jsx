@@ -7,16 +7,15 @@ export default function BookItem(props) {
     const [newStat, setStat] = useState('');
 
     const getBook = async () => {
-        let response = await axios.get(`${BASE_URL}${props.username}/bookshelf/${props.bookId}`);
-        setBook(response.data);
+        setBook(props.book);
     };
     const changeStatus = async () => {
-        let book = await axios.put(`${BASE_URL}${props.username}/bookshelf/editbook/${props.bookId}`, 
+        let newBook = await axios.put(`${BASE_URL}${props.username}/bookshelf/editbook/${book._id}`, 
             {
                 readingStatus: newStat
             }
         );
-        setBook(book.data);
+        setBook(newBook.data);
     };
 
     useEffect(() => {
