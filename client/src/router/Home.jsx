@@ -12,7 +12,7 @@ export default function Home(props) {
     return (
         <div>
             <Nav />
-            <h1>This is the home page</h1>
+            <h1>Welcome to the Book Keep!</h1>
             <button className='homeBtn' onClick={goToSignup}>Sign up!</button>
             <button className='homeBtn' onClick={goToLogin}>Login</button>
         </div>

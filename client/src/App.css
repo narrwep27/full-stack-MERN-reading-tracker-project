@@ -41,16 +41,13 @@ span {
 .navBar {
   display: flex;
   padding: 1em;
-  border: 2px solid black;
+  border-bottom: 2px solid grey;
 }
 .userNavBar {
   display: grid;
   grid-template-columns: 15% 15% 60% 10%;
   padding: 1em;
-  border: 2px solid black;
-}
-.navLink {
-  margin: 0 30px;
+  border-bottom: 2px solid grey;
 }
 .logout {
   justify-self: right;
@@ -62,10 +59,13 @@ span {
 }
 .navBar a, .userNavBar a {
   text-decoration: none;
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   border-radius: 10px;
-  padding: 5px;
+  padding: 7px;
   cursor: pointer;
+  margin: 0 30px;
+  color: black;
+  font-weight: 600;
 }
 
 /* signup */
@@ -101,6 +101,15 @@ span {
 }
 .alert button {
   margin: .5em 1em;
+}
+
+/* about */
+.about {
+  width: 70%;
+  margin: 0 auto;
+}
+.about p {
+  text-align: left;
 }
 
 /* bookshelf */
