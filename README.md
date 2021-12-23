@@ -35,7 +35,7 @@
 
 ### ***Images/Screenshots***
 #### Image 1: Horse
-![Horse](https://th.bing.com/th/id/OIP.KpAfjTRCSlaiSVrcjSiYxgHaEp?pid=ImgDet&rs=1)
+![Sign up page with username and password checks]()
 ***
 
 ### ***Credits***
